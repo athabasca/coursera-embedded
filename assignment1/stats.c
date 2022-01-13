@@ -9,13 +9,15 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Test program to calculate stats
  *
- * <Add Extended Description Here>
+ * This program sorts and calculates several statistics about an array 
+ * of 8-bit integers. It prints the array, sorted from largest to smallest
+ * value, then prints the min, max, mean, and median values, rounded down.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Athabasca
+ * @date January 2022 
  *
  */
 
