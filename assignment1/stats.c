@@ -37,17 +37,34 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-
+  sort_array(test, SIZE);
+  print_array(test, SIZE);
+  print_statistics(test, SIZE);
 }
 
-/* Add other Implementation File Code Here */
 
 void print_statistics(unsigned char * array, unsigned int length) {
+  unsigned char min = 0, max = 0, mean = 0, median = 0;
+  min = get_minimum(array, length);
+  max = get_maximum(array, length);
+  mean = find_mean(array, length);
+  median = find_median(array, length);
 
+  printf("Minimum: %c  Maximum: %c  Mean: %c  Median: %c\n", min, max, mean, median);
 }
 
 void print_array(unsigned char * array, unsigned int length) {
-
+  // Print as "index: value" with eight values per line.
+  for(int ii = 0; ii < length; ii++) {
+    printf("%u: %c", ii, array[ii]);
+    if(ii % 8 == 7) {
+      printf("\n");
+    }
+    else {
+      printf("  ");
+    }
+  }
+  }
 }
 
 unsigned char find_minimum(unsigned char * array, unsigned int length) {

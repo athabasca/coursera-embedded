@@ -25,9 +25,9 @@
 /**
  * @brief Prints statistics of an array.
  *
- * print_statistics() prints the minimum, maximum,
- * mean, and median of an unsigned char array.
- * Statistics are rounded down to the nearest integer.
+ * print_statistics() prints the minimum, maximum, mean, and median of the
+ * integer values in an unsigned char array. Statistics are rounded down
+ * to the nearest integer.
  *
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
@@ -40,8 +40,8 @@ void print_statistics(unsigned char * array, unsigned int length);
 /**
  * @brief Prints an array.
  *
- * print_array() prints an unsigned char array
- * with nice formatting.
+ * print_array() prints an unsigned char array as integers with the array index 
+ * before each element and eight integers per line.
  *
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
@@ -53,9 +53,8 @@ void print_array(unsigned char * array, unsigned int length);
 /**
  * @brief Calculates the minimum value
  *
- * find_minimum() takes an array of unsigned chars and returns
- * the minimum value in the array. The length of the array must
- * be passed in as well.
+ * find_minimum() takes an array of unsigned chars and returns the minimum
+ * value in the array. The length of the array must be passed in as well.
  * Statistics are rounded down to the nearest integer.
  *
  * @param array A pointer to an array of unsigned chars
@@ -69,9 +68,8 @@ unsigned char find_minimum(unsigned char * array, unsigned int length);
 /**
  * @brief Calculates the maximum value
  *
- * find_maximum() takes an array of unsigned chars and returns
- * the maximum value in the array. The length of the array must
- * be passed in as well.
+ * find_maximum() takes an array of unsigned chars and returns the maximum
+ * value in the array. The length of the array must be passed in as well.
  * Statistics are rounded down to the nearest integer.
  *
  * @param array A pointer to an array of unsigned chars
@@ -85,10 +83,9 @@ unsigned char find_maximum(unsigned char * array, unsigned int length);
 /**
  * @brief Calculates the mean value
  *
- * find_mean() takes an array of unsigned chars and returns
- * the mean value in the array. The length of the array must
- * be passed in as well.
- * Statistics are rounded down to the nearest integer.
+ * find_mean() takes an array of unsigned chars and returns the mean value in
+ * the array. The length of the array must be passed in as well.  Statistics
+ * are rounded down to the nearest integer.
  *
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
@@ -101,10 +98,9 @@ unsigned char find_mean(unsigned char * array, unsigned int length);
 /**
  * @brief Calculates the median value
  *
- * find_median() takes an array of unsigned chars and returns
- * the median value in the array. The length of the array must
- * be passed in as well.
- * Statistics are rounded down to the nearest integer.
+ * find_median() takes an array of unsigned chars and returns the median value
+ * in the array. The length of the array must be passed in as well.  Statistics
+ * are rounded down to the nearest integer.
  *
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
@@ -116,8 +112,8 @@ unsigned char find_median(unsigned char * array, unsigned int length);
 /**
  * @brief Sorts an array
  *
- * sort_array() takes an array of unsigned chars and sorts it in place.
- * The length of the array must be passed in.
+ * sort_array() takes an array of unsigned chars and sorts it in place.  The
+ * length of the array must be passed in.
  *
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
