@@ -37,8 +37,6 @@ void main() {
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
   sort_array(test, SIZE);
   print_array(test, SIZE);
   print_statistics(test, SIZE);
@@ -68,19 +66,33 @@ void print_array(unsigned char * array, unsigned int length) {
 }
 
 unsigned char find_minimum(unsigned char * array, unsigned int length) {
-
+  if(0 == length) {
+    return 0;
+  }
+  unsigned char min = 255;
+  for(unsigned int ii = 0; ii < length; ii++) {
+	  if(array[ii] < min) { min = array[ii]; }
+  }
+  return min;
 }
 
 unsigned char find_maximum(unsigned char * array, unsigned int length) {
-
+  if(0 == length) {
+    return 0;
+  }
+  unsigned char max = 0;
+  for(unsigned int ii = 0; ii < length; ii++) {
+	  if(array[ii] > max) { max = array[ii]; }
+  }
+  return max;
 }
 
 unsigned char find_mean(unsigned char * array, unsigned int length) {
-
+  return 0;
 }
 
 unsigned char find_median(unsigned char * array, unsigned int length) {
-
+  return 0;
 }
 
 void sort_array(unsigned char * array, unsigned int length) {

@@ -59,7 +59,7 @@ void print_array(unsigned char * array, unsigned int length);
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
  *
- * @return An unsigned char containing the minimum value
+ * @return An unsigned char containing the minimum value or 0 if array is empty
  */
 unsigned char find_minimum(unsigned char * array, unsigned int length);
 
@@ -74,7 +74,7 @@ unsigned char find_minimum(unsigned char * array, unsigned int length);
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
  *
- * @return An unsigned char containing the maximum value
+ * @return An unsigned char containing the maximum value or 0 if array is empty
  */
 unsigned char find_maximum(unsigned char * array, unsigned int length);
 
@@ -89,7 +89,7 @@ unsigned char find_maximum(unsigned char * array, unsigned int length);
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
  *
- * @return An unsigned char containing the mean value
+ * @return An unsigned char containing the mean value or 0 if array is empty
  */
 unsigned char find_mean(unsigned char * array, unsigned int length);
 
@@ -104,7 +104,7 @@ unsigned char find_mean(unsigned char * array, unsigned int length);
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
  *
- * @return An unsigned char containing the median value
+ * @return An unsigned char containing the median value or 0 if array is empty
  */
 unsigned char find_median(unsigned char * array, unsigned int length);
 
