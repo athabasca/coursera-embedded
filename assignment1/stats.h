@@ -40,8 +40,7 @@ void print_statistics(unsigned char * array, unsigned int length);
 /**
  * @brief Prints an array.
  *
- * print_array() prints an unsigned char array as integers with the array index 
- * before each element and eight integers per line.
+ * print_array() prints an unsigned char array as ten integers per line.
  *
  * @param array A pointer to an array of unsigned chars
  * @param length The length of the array
