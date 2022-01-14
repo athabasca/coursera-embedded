@@ -88,7 +88,15 @@ unsigned char find_maximum(unsigned char * array, unsigned int length) {
 }
 
 unsigned char find_mean(unsigned char * array, unsigned int length) {
-  return 0;
+  if(0 == length) {
+    return 0;
+  }
+  unsigned int sum = 0;
+  for(unsigned int ii = 0; ii < length; ii++) {
+    sum += array[ii];
+    // Does not account for overflow
+  }
+  return sum / length; // Integer division discards the fractional part
 }
 
 unsigned char find_median(unsigned char * array, unsigned int length) {
