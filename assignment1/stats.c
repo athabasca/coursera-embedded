@@ -100,7 +100,20 @@ unsigned char find_mean(unsigned char * array, unsigned int length) {
 }
 
 unsigned char find_median(unsigned char * array, unsigned int length) {
-  return 0;
+  if(0 == length) {
+    return 0;
+  }
+
+  sort_array(array, length); 
+  // Sorting is redundant in this case since the array is already sorted, 
+  // but I don't want to require a sorted array.
+
+  if(length % 2 == 0) {
+    return (unsigned char)(array[length/2 - 1] + array[length/2])/2; 
+  }
+  else {
+    return (unsigned char)array[length/2];
+  }
 }
 
 void sort_array(unsigned char * array, unsigned int length) {
