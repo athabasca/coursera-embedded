@@ -111,22 +111,17 @@ void sort_array(unsigned char * array, unsigned int length) {
   if(length <= 1) { return; }
 
   // The first element of the array is the pivot.
-  unsigned int ii = 1, jj = length - 1, temp = 0;
-  /*while(ii <= jj && ii < length - 1 && jj > 0) {
-    if(array[ii] <= array[0] && array[jj] >= array[0]) {
-	    // Swap elements ii and jj.
-      temp = array[ii]; array[ii] = array[jj]; array[jj] = temp;
-    }
-    if(array[ii] > array[0]) { ii++; }
-    if(array[jj] <= array[0]) { jj--; }
-  }*/
-  
+  unsigned int ii = 1, jj = length - 1;
+  unsigned char temp = 0;
+
+  // Move all values larger than the pivot to the first part of the list
+  // and all smaller values to the second part.
   while(1) {
-    while(array[ii] > array[0] && ii < length - 1) {
+    while(array[ii] < array[0] && ii < length - 1) {
       ii++;
     }
 
-    while(array[jj] <= array[0] && jj > 0) {
+    while(array[jj] >= array[0] && jj > 0) {
       jj--;
     }
 
@@ -134,10 +129,9 @@ void sort_array(unsigned char * array, unsigned int length) {
       break;
     }
 
-    temp = array[ii];
-    array[ii] = array[jj];
-    array[jj] = temp;
+    temp = array[ii]; array[ii] = array[jj]; array[jj] = temp;
   }
+
   // Swap the pivot and final unpartitioned element.
   temp = array[0]; array[0] = array[jj]; array[jj] = temp;
 
