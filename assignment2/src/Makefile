@@ -15,16 +15,16 @@
 # Use: make [TARGET] [PLATFORM-OVERRIDES]
 #
 # Build Targets:
-#      build: Compile all object files and link into a final executable
-#      compile-all: Compile all object files but do not link
-#      clean: Remove all build artifacts
-#      <FILE>.i Generate the preprocessed output of <FILE>
-#      <FILE>.asm Generate the assembly output and final executable of <FILE> 
-#      <FILE>.o Generate the object file for <FILE>
+#      build - Compile all object files and link into a final executable
+#      compile-all - Compile all object files but do not link
+#      clean - Remove all build artifacts
+#      <FILE>.i - Generate the preprocessed output of <FILE>
+#      <FILE>.asm - Generate the assembly output and final executable of <FILE> 
+#      <FILE>.o - Generate the object file for <FILE>
 #
 # Platform Overrides:
-#      PLATFORM=HOST: Compile for the host system
-#      PLATFORM=MSP432: Cross-compile for the target system
+#      PLATFORM=HOST - Compile for the host system
+#      PLATFORM=MSP432 - Cross-compile for the target system
 #
 #------------------------------------------------------------------------------
 include sources.mk
@@ -43,5 +43,5 @@ CC =
 LD = 
 LDFLAGS = 
 CFLAGS = 
-CPPFLAGs = 
+CPPFLAGS = 
 
