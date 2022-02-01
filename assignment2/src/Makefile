@@ -43,7 +43,7 @@ SPECS =
 CC = gcc 
 LD = ld
 TARGET = c1m2
-LDFLAGS = 
+LDFLAGS = -Wl,-Map=$(TARGET).map 
 CFLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM) $(INCLUDES)
 CPPFLAGS = 
 
@@ -65,4 +65,4 @@ compile-all: $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJS) $(TARGET).out
+	$(RM) $(OBJS) $(TARGET).out $(TARGET).map
