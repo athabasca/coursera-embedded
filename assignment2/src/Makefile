@@ -20,7 +20,7 @@
 #      compile-all - Compile all object files but do not link
 #      clean - Remove all build artifacts
 #      <FILE>.i - Generate the preprocessed output of <FILE>
-#      <FILE>.asm - Generate the assembly output and final executable of <FILE> 
+#      <FILE>.asm - Generate the assembly output of <FILE> 
 #      <FILE>.o - Generate the object file for <FILE>
 #
 # Platform Overrides:
@@ -63,9 +63,12 @@ $(TARGET).out: $(OBJS)
 %.i: %.c
 	$(CPP) -o $@ $(CPPFLAGS) $(CFLAGS) $^
 
+%.asm: %.c
+	$(CC) -S -o $@ $(CFLAGS) $^
+
 .PHONY: compile-all
 compile-all: $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJS) $(TARGET).out $(TARGET).map $(OBJS:.o=.i)
+	$(RM) $(OBJS) $(TARGET).out $(TARGET).map $(OBJS:.o=.i) $(OBJS:.o=.asm)
