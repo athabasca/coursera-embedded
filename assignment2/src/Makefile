@@ -60,9 +60,12 @@ $(TARGET).out: $(OBJS)
 	$(CC) -o $@ $(LDFLAGS) $^
 	$(SIZE) $@
 
+%.i: %.c
+	$(CPP) -o $@ $(CPPFLAGS) $(CFLAGS) $^
+
 .PHONY: compile-all
 compile-all: $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJS) $(TARGET).out $(TARGET).map
+	$(RM) $(OBJS) $(TARGET).out $(TARGET).map $(OBJS:.o=.i)
