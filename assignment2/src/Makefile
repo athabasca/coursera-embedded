@@ -49,11 +49,18 @@ CPPFLAGS =
 # Utility Commands
 SIZE = size
 
+# Files
 OBJS = $(SOURCES:.c=.o)
+TARGET = c1m2.out
 
 .PHONY: build
-build: c1m2.out
+build: $(TARGET)
 
-c1m2.out: $(OBJS)
+$(TARGET): $(OBJS)
 	$(CC) -o $@ $(LDFLAGS) $^
 	$(SIZE) $@
+
+
+.PHONY: clean
+clean:
+	$(RM) $(OBJS) $(TARGET)
