@@ -42,6 +42,7 @@ SPECS =
 # Compiler Flags and Defines
 CC = gcc 
 LD = ld
+TARGET = c1m2
 LDFLAGS = 
 CFLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM) $(INCLUDES)
 CPPFLAGS = 
@@ -51,12 +52,11 @@ SIZE = size
 
 # Files
 OBJS = $(SOURCES:.c=.o)
-TARGET = c1m2.out
 
 .PHONY: build
-build: $(TARGET)
+build: $(TARGET).out
 
-$(TARGET): $(OBJS)
+$(TARGET).out: $(OBJS)
 	$(CC) -o $@ $(LDFLAGS) $^
 	$(SIZE) $@
 
@@ -65,4 +65,4 @@ compile-all: $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJS) $(TARGET)
+	$(RM) $(OBJS) $(TARGET).out
