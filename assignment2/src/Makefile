@@ -15,7 +15,8 @@
 # Use: make [TARGET] [PLATFORM-OVERRIDES]
 #
 # Build Targets:
-#      build - Compile all object files and link into a final executable
+#      build - Build the target executable and display the size
+#      		of the compiled sections (default)
 #      compile-all - Compile all object files but do not link
 #      clean - Remove all build artifacts
 #      <FILE>.i - Generate the preprocessed output of <FILE>
@@ -23,14 +24,14 @@
 #      <FILE>.o - Generate the object file for <FILE>
 #
 # Platform Overrides:
-#      PLATFORM=HOST - Compile for the host system
+#      PLATFORM=HOST - Compile for the host system (default)
 #      PLATFORM=MSP432 - Cross-compile for the target system
 #
 #------------------------------------------------------------------------------
 include sources.mk
 
 # Platform Overrides
-PLATFORM = 
+PLATFORM = HOST
 
 # Architectures Specific Flags
 LINKER_FILE = 
@@ -39,9 +40,20 @@ ARCH =
 SPECS = 
 
 # Compiler Flags and Defines
-CC = 
-LD = 
+CC = gcc 
+LD = ld
 LDFLAGS = 
-CFLAGS = 
+CFLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM) $(INCLUDES)
 CPPFLAGS = 
 
+# Utility Commands
+SIZE = size
+
+OBJS = $(SOURCES:.c=.o)
+
+.PHONY: build
+build: c1m2.out
+
+c1m2.out: $(OBJS)
+	$(CC) -o $@ $(LDFLAGS) $^
+	$(SIZE) $@
