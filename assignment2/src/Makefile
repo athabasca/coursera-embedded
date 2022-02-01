@@ -60,6 +60,8 @@ $(TARGET): $(OBJS)
 	$(CC) -o $@ $(LDFLAGS) $^
 	$(SIZE) $@
 
+.PHONY: compile-all
+compile-all: $(OBJS)
 
 .PHONY: clean
 clean:
