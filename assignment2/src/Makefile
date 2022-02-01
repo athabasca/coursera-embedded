@@ -66,9 +66,12 @@ $(TARGET).out: $(OBJS)
 %.asm: %.c
 	$(CC) -S -o $@ $(CFLAGS) $^
 
+$(TARGET).asm: $(TARGET).out
+	objdump -d $^ > $@
+
 .PHONY: compile-all
 compile-all: $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJS) $(TARGET).out $(TARGET).map $(OBJS:.o=.i) $(OBJS:.o=.asm)
+	$(RM) $(OBJS) $(TARGET).out $(TARGET).map $(OBJS:.o=.i) $(OBJS:.o=.asm) $(TARGET).asm
