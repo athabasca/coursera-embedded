@@ -41,7 +41,7 @@ THUMB = thumb
 FLOATABI = hard
 FPU = fpv4-sp-d16
 SPECS = nosys.specs 
-MSPFLAGS = -mcpu=$(CPU) -m$(THUMB) -march=$(ARCH) -mfloat=$(FLOATABI) -mfpu=$(FPU) --specs=$(SPECS)
+MSPFLAGS = -mcpu=$(CPU) -m$(THUMB) -march=$(ARCH) -mfloat-abi=$(FLOATABI) -mfpu=$(FPU) --specs=$(SPECS)
 
 # Compiler Flags and Defines
 CC = gcc 
