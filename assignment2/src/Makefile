@@ -72,7 +72,7 @@ OBJS = $(SOURCES:.c=.o)
 build: $(TARGET).out
 
 $(TARGET).out: $(OBJS)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $^
 	$(SIZE) $@
 
 %.i: %.c
