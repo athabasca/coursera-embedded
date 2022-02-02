@@ -89,4 +89,4 @@ compile-all: $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJS) $(TARGET).out $(TARGET).map $(OBJS:.o=.i) $(OBJS:.o=.asm) $(TARGET).asm
+	$(RM) *.o *.out *.map *.i *.asm
