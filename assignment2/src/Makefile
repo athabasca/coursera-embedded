@@ -49,7 +49,6 @@ MSPFLAGS = -mcpu=$(CPU) -m$(THUMB) -march=$(ARCH) -mfloat-abi=$(FLOATABI) -mfpu=
 # Compiler Flags and Defines
 LDFLAGS = -Wl,-Map=$(TARGET).map 
 CFLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM) $(INCLUDES)
-CPPFLAGS = 
 
 ifeq ($(PLATFORM),HOST)
 	CC = gcc 
@@ -76,7 +75,7 @@ $(TARGET).out: $(OBJS)
 	$(SIZE) $@
 
 %.i: %.c
-	$(CPP) -o $@ $(CPPFLAGS) $(CFLAGS) $^
+	$(CPP) -o $@ $(CFLAGS) $^
 
 %.asm: %.c
 	$(CC) -S -o $@ $(CFLAGS) $^
