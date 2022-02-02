@@ -30,11 +30,14 @@
 #------------------------------------------------------------------------------
 include sources.mk
 
+# Name-stem of executable to build
+TARGET = c1m2
+
 # Platform Overrides
 PLATFORM = HOST
 
 # Architectures Specific Flags
-LINKER_FILE = ../msp432p401.lds
+LINKER_FILE = ../msp432p401r.lds
 CPU = cortex-m4 
 ARCH = armv7e-m
 THUMB = thumb
@@ -44,15 +47,23 @@ SPECS = nosys.specs
 MSPFLAGS = -mcpu=$(CPU) -m$(THUMB) -march=$(ARCH) -mfloat-abi=$(FLOATABI) -mfpu=$(FPU) --specs=$(SPECS)
 
 # Compiler Flags and Defines
-CC = gcc 
-LD = ld
-TARGET = c1m2
 LDFLAGS = -Wl,-Map=$(TARGET).map 
 CFLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM) $(INCLUDES)
 CPPFLAGS = 
 
-# Utility Commands
-SIZE = size
+ifeq ($(PLATFORM),HOST)
+	CC = gcc 
+	LD = ld
+	SIZE = size
+else ifeq ($(PLATFORM),MSP432)
+	CC = arm-none-eabi-gcc 
+	LD = arm-none-eabi-ld
+	SIZE = arm-none-eabi-size
+	
+	CFLAGS += $(MSPFLAGS)
+	LDFLAGS += -T $(LINKER_FILE)
+endif
+
 
 # Files
 OBJS = $(SOURCES:.c=.o)
