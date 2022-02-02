@@ -34,10 +34,14 @@ include sources.mk
 PLATFORM = HOST
 
 # Architectures Specific Flags
-LINKER_FILE = 
-CPU = 
-ARCH = 
-SPECS = 
+LINKER_FILE = ../msp432p401.lds
+CPU = cortex-m4 
+ARCH = armv7e-m
+THUMB = thumb
+FLOATABI = hard
+FPU = fpv4-sp-d16
+SPECS = nosys.specs 
+MSPFLAGS = -mcpu=$(CPU) -m$(THUMB) -march=$(ARCH) -mfloat=$(FLOATABI) -mfpu=$(FPU) --specs=$(SPECS)
 
 # Compiler Flags and Defines
 CC = gcc 
