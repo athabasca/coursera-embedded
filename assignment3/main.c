@@ -23,12 +23,37 @@
 #include <stdlib.h>
 #include "misc.h"
 
+/*
+From 'nm c1m3.out':
+2000088c b g1
+00000d50 R g2
+20000004 D g3
+20000890 B g4
+20000008 D g5
+
+b and B mean the symbol is in .bss. According to man nm, lowercase means local and uppercase means global; since g1 and g4 are both globals, I assume the difference comes from the static storage class of g1 or the zero-initialization of g4. R means read-only data, D means initialized data.
+
+Thus, g1 and g4 are in the .bss segment of the data section, which has RW permissions.
+g2, being constant, is in the .rodata segment of the code section, with RX permissions.
+g3 and g5 are in the .data segment of the data section, again with RW permissions.
+
+All of these symbols have global scope and program lifetime.
+*/
 static int g1;
 const int g2 = 45;
 char g3 = 12;
 char g4 = 0;
 extern char g5[N];
 
+/*
+main is in the .text segment of the code section, with RX permissions. It has global scope and program lifetime.
+
+Local variables l1, l2, and l3 have local scope and function lifetime, though the dynamically allocated memory pointed to by l2 lives until it is freed. It is never freed (causing a memory leak), so its lifetime ends when the program does. Local variables go in register r4-r11 in the ARM calling convention.
+
+The register keyword suggests to the compiler that l1 go in a register rather than on the stack.
+
+The volatile keyword says that the value of a variable l3 may be modified in ways unknown to the surrounding code. For example, hardware may change the value of a variable correspondng to a memory-mapped I/O port. The compiler should not optimize statements using volatile variables.
+*/
 int main()
 {
   register int l1;
