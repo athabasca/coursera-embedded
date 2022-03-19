@@ -25,7 +25,7 @@ int g5[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 /*
 The code for func goes in the .text segment of the code section. The parameter f1 goes in register r0, according to the ARM calling convention. Local variables go in registers r4-r11 and the return value goes in r0.
-
+In practice, f3 goes on the stack at sp offset 12. f4 goes on the stack at offset 8. 
 f2, being a static local variable, keeps its value across invocations of func. It goes in .bss.
 */
 int func(int * f1)

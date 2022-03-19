@@ -48,7 +48,7 @@ extern char g5[N];
 /*
 main is in the .text segment of the code section, with RX permissions. It has global scope and program lifetime.
 
-Local variables l1, l2, and l3 have local scope and function lifetime, though the dynamically allocated memory pointed to by l2 lives until it is freed. It is never freed (causing a memory leak), so its lifetime ends when the program does. Local variables go in register r4-r11 in the ARM calling convention.
+Local variables l1, l2, and l3 have local scope and function lifetime, though the dynamically allocated memory pointed to by l2 lives until it is freed. It is never freed (causing a memory leak), so its lifetime ends when the program does. Local variables go in registers r4-r11 in the ARM calling convention. However, from reading the assembly, it appears that some local variables still go on the stack: l3 at sp offset 0 and l2 at sp offset 4. l1 (with register type qualifier) is in r4.
 
 The register keyword suggests to the compiler that l1 go in a register rather than on the stack.
 
